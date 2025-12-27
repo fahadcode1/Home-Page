@@ -1,5 +1,9 @@
 /* ================= GLOBAL ================= */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background-color: #ffffff;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -12,6 +16,7 @@ body {
 header {
   position: relative;
   min-height: 500px;
+  overflow: hidden;
 }
 
 .header-container {
@@ -31,8 +36,8 @@ header {
 
 .picture-container {
   position: absolute;
-  display: flex;
   width: 400px;
+  height: 500px;
   overflow: hidden;
   border-radius: 4px;
   margin-left: 2rem;
@@ -52,6 +57,7 @@ h1 {
   left: 150px;
   font-size: 2.5rem;
   z-index: 4;
+  color: white;
   text-shadow: 0 2px 5px rgba(0, 0, 0, 0.65);
 }
 
@@ -60,9 +66,7 @@ h1 {
 .about-me-card {
   position: relative;
   z-index: 2;
-  margin-left: 25rem;
-  margin-right: 7rem;
-  margin-top: 60px;
+  margin: 60px 7rem 0 25rem;
   padding: 30px 20px 60px;
   background-color: rgb(236, 236, 236);
   border-radius: 6px;
@@ -111,7 +115,6 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  color: black;
   margin-bottom: 40px;
 }
 
@@ -121,7 +124,6 @@ h3 {
   width: 100%;
 }
 
-/* ❗ FIXED: NO ABSOLUTE HERE */
 .my-work-container {
   display: flex;
   flex-wrap: wrap;
@@ -137,15 +139,12 @@ h3 {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
-  border: 1px solid rgba(255, 255, 255, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .my-work-card:hover {
   transform: translateY(-8px) scale(1.015);
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.25),
-    0 0 0 1px rgba(255, 255, 255, 0.06);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
 }
 
 .my-work-card a {
@@ -155,11 +154,6 @@ h3 {
 
 .description {
   font-size: 0.85rem;
-  max-width: 350px;
-}
-
-.project-img {
-  max-width: 350px;
 }
 
 .project-img img {
@@ -168,13 +162,12 @@ h3 {
   object-fit: cover;
 }
 
-
+/* ================= CONTACT ================= */
 
 .contact-card {
   display: flex;
-  background-color: azure;
-  flex-direction: row;
   min-height: 600px;
+  background-color: azure;
 }
 
 .contact-info {
@@ -182,51 +175,35 @@ h3 {
   margin: 25px;
   padding: 32px;
   max-width: 420px;
-
-  background: linear-gradient(
-    145deg,
-    #ffffff,
-    #f3f6ff
-  );
-
+  background: linear-gradient(145deg, #ffffff, #f3f6ff);
   border-radius: 18px;
-
-  box-shadow:
-    0 10px 30px rgba(0, 0, 0, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.6);
-
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
   display: flex;
   flex-direction: column;
   gap: 14px;
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
+
 .contact-info:hover {
   transform: translateY(-6px);
-  box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 18px 45px rgba(0, 0, 0, 0.18);
 }
+
 .contact-info .title {
   font-size: 1.6rem;
   font-weight: 700;
-  letter-spacing: 0.5px;
-  color: #1e293b;
 }
 
 .contact-info .msg {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #475569;
 }
 
-
 .lowerPic-area {
-  margin: 50px;
   width: 400px;
   height: 500px;
+  margin: 50px 0 0 200px;
   overflow: hidden;
-  margin-top: 50px;
-  margin-left: 200px;
 }
 
 .lowerPic-area img {
@@ -234,10 +211,12 @@ h3 {
   height: 100%;
   object-fit: cover;
   border-radius: 10px;
-
 }
+
 .icons-2 {
   position: absolute;
+  color: inherit;
+  text-decoration: none;
   right: 20px;
   bottom: 15px;
   display: flex;
@@ -245,7 +224,81 @@ h3 {
   font-size: 30px;
 }
 
-.icons-2 a {
-  color: inherit;
-  text-decoration: none;
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  header {
+    min-height: 420px;
+  }
+
+  .header-background {
+    transform: skewY(-5deg);
+  }
+
+  .picture-container {
+    position: relative;
+    width: 85%;
+    height: 420px;
+    margin: 1.5rem auto 0;
+  }
+
+  h1 {
+    position: relative;
+    left: 0;
+    bottom: 0;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 2rem;
+  }
+
+  .about-me-card {
+    margin: 40px 16px;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  h2,
+  .abtme-disc {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .icons {
+    position: relative;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .main {
+    margin-top: 60px;
+  }
+
+  .my-work-card {
+    max-width: 90%;
+  }
+
+  .contact-card {
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 16px;
+  }
+
+  .contact-info {
+    max-width: 100%;
+  }
+
+  .lowerPic-area {
+    width: 90%;
+    height: 420px;
+    margin: 40px auto 0;
+  }
+
+  .icons-2 {
+    position: relative;
+    color: inherit;
+    text-decoration: none;
+    justify-content: center;
+    margin-top: 20px;
+  }
 }
